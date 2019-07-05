@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+window.onload = function () {
+
+    let list = document.querySelector('#list');
+    list.addEventListener('click', e=> {
+        console.log( e.target.getAttribute('data-attr-num') ) // this click LI    
+        console.log( e.currentTarget)  // UL
+    })
+}
+
+
+
+
+    </script>
+    <ul id="list">
+        <li data-attr-num="1">1</li>
+        <li data-attr-num="2">2</li>
+        <li data-attr-num="3">3</li>
+        <li data-attr-num="4">4</li>
+        <li data-attr-num="5">5</li>
+        <li data-attr-num="6">6</li>
+        <li data-attr-num="7">7</li>
+        <li data-attr-num="8">8</li>
+        <li data-attr-num="9">9</li>
+    </ul>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+
+<style>
+#container {
+    width: 100px;
+    height: 100px;
+    background: #00205c;
+    position: absolute;
+}
+</style>
+
+<div id="container"></div>
+
+<script>
+
+
+let activeElement;
+let offsetX;
+let offsetY;
+let container = document.querySelector('#container');
+let mDown = (e) => {
+    console.log('Нажали на элемент');
+    activeElement = e.target;
+    offsetX = e.offsetX;
+    offsetY = e.offsetY;
+}
+let mUp = (e) => {
+    console.log('Отпустили элемент');
+    activeElement = null;
+}
+let mMove = (e) => {
+    if( activeElement ) {
+        activeElement.style.top = e.clientY - offsetY + "px";
+        activeElement.style.left = e.clientX - offsetX + "px";
+    }
+   //  console.log('Двигаем элемент', e.clientY );
+}
+
+container.addEventListener('mousedown', mDown);
+container.addEventListener('mouseup', mUp);
+container.addEventListener('mousemove', mMove);
+
+
+
+</script>
+</body>
+</html>
